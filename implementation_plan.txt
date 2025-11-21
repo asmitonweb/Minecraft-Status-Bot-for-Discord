@@ -1,0 +1,35 @@
+# System Tray Support Implementation Plan
+
+## Goal Description
+The goal is to allow the Minecraft Status Monitor to run in the background with a system tray icon. This will declutter the user's taskbar while keeping the monitor active. The user will be able to control the application (quit) via the tray icon.
+
+## User Review Required
+> [!NOTE]
+> This change requires installing new Python packages: `pystray` and `Pillow`.
+
+## Proposed Changes
+
+### Dependencies
+- Install `pystray` and `Pillow`.
+
+### Code Changes
+
+#### [MODIFY] [minecraft_status_monitor.py](file:///c:/Programs/Discord%20App%20to%20Update%20server%20Status/minecraft_status_monitor.py)
+- Import `pystray` and `PIL` (Pillow).
+- Implement a function to create a simple icon programmatically (e.g., a colored circle).
+- Refactor `main()` to run the monitoring loop in a separate `threading.Thread`.
+- Implement a `setup_tray()` function to create the icon and "Quit" menu item.
+- Update the entry point to start the tray application.
+
+#### [MODIFY] [run_monitor.bat](file:///c:/Programs/Discord%20App%20to%20Update%20server%20Status/run_monitor.bat)
+- Change `python` to `pythonw` to prevent the console window from appearing at all.
+
+## Verification Plan
+
+### Manual Verification
+1. Run `run_monitor.bat`.
+2. Verify that no console window remains open (or it closes immediately).
+3. Check the system tray (bottom right) for a new icon.
+4. Hover over the icon to see the tooltip (optional).
+5. Right-click the icon and select "Quit".
+6. Verify the process terminates.

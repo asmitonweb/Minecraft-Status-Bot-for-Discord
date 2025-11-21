@@ -1,0 +1,3 @@
+@echo off
+echo Starting Minecraft Status Monitor...
+start "" pythonw minecraft_status_monitor.py
