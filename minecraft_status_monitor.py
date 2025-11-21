@@ -13,7 +13,7 @@ from PIL import Image, ImageDraw
 DISCORD_WEBHOOK_URL = "YOUR_WEBHOOK_URL_HERE"
 MINECRAFT_PROCESS_NAME = "java.exe"
 CHECK_INTERVAL = 60
-SERVER_NAME = "Closed Room Inc. Minecraft Server"
+SERVER_NAME = "Minecraft Server"
 
 STATUS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".server_status")
 
